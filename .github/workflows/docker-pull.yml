@@ -11,5 +11,5 @@ jobs:
     steps:
     - name: Pull docker image
       run: |
-        docker login docker.pkg.github.com -u token -p ${{ secrets.GITHUB_TOKEN }}
+        echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u token --password-stdin
         docker pull docker.pkg.github.com/jcansdale/gpr/gpr
