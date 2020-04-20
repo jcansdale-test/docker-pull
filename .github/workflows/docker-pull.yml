@@ -1,0 +1,15 @@
+name: Docker Pull
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Pull docker image
+      run: |
+        docker login docker.pkg.github.com -u token -p ${{ secrets.GITHUB_TOKEN }}
+        docker pull docker.pkg.github.com/jcansdale/gpr/gpr
